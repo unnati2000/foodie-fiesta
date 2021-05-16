@@ -1,0 +1,36 @@
+const mongoose = require("mongoose");
+
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  pic: {
+    type: String,
+    default:
+      "https://img2.pngio.com/pamela-wilkins-country-stitches-gravatar-png-400_400.png",
+  },
+
+  followers: [
+    {
+      type: Object,
+      ref: "User",
+    },
+  ],
+  following: [
+    {
+      type: Object,
+      ref: "User",
+    },
+  ],
+});
+
+module.exports = Post = mongoose.model("User", UserSchema);
