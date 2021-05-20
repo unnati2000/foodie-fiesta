@@ -2,7 +2,7 @@ let { buildSchema } = require("graphql");
 
 const schema = buildSchema(`
   type Post {
-    _id: ID!
+    id: ID!
     title: String!
     steps: [String!]!
     photo: String
@@ -12,7 +12,7 @@ const schema = buildSchema(`
   }
 
   type Like {
-    _id: ID!
+    id: ID!
   }
 
   type Comment {
@@ -21,7 +21,7 @@ const schema = buildSchema(`
   }
   
   type User {
-    _id: ID!
+    id: ID!
     name: String!
     email: String!
     password: String
@@ -32,10 +32,10 @@ const schema = buildSchema(`
   }
 
   type Followers {
-      _id: ID!
+    id: ID!
   }
   type Following {
-    _id: ID!
+    id: ID!
   }
 
   type AuthData {
@@ -51,30 +51,24 @@ const schema = buildSchema(`
     }
 
     input PostInput {
-        _id: ID!
         title: String!
-        steps: [String!]!
+        steps: [String]!
         photo: String
-        postedBy: ID!
-    }
-
-    input RegisterInput {
-        username: String!
-        password: String!
-        confirmPassword: String!
-        email: String!
     }
     
     type RootQuery {
         users: [User!]!
         posts: [Post!]!
-        post: Post!
+        post(postId: ID!): Post
         login(email: String!, password: String!): AuthData!
     }
 
     type RootMutation {
-        createPost(postInput: PostInput): Post
-        createUser(userInput: UserInput): User
+        createUser(userInput: UserInput): User!
+        createPost(postInput: PostInput): Post!
+        addComment(postId:ID!, comment: Comment!): Post!
+        likePost(postId: ID!): Post!
+        deletePost(postId: ID!): ID!
     }
 
     schema {

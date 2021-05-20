@@ -16,22 +16,18 @@ const PostSchema = new mongoose.Schema({
     required: true,
   },
   postedBy: {
-    type: ObjectId,
-    ref: "User",
-  },
-  channelname: {
-    type: ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
   comment: [
     {
       text: String,
-      postedBy: { type: ObjectId, ref: "User" },
+      username: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     },
   ],
   likes: [
     {
-      type: ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
   ],
