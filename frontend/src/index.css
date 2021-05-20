@@ -1,0 +1,811 @@
+/*  !!!!!!!!!!!!!!!!!!!!!!!!!!!!SIGN IN AND UP */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@500&family=Roboto:wght@400&family=Mulish:wght@500&family=Poppins&display=swap");
+.main {
+  text-align: center;
+  border-radius: 20px;
+  background-size: cover;
+  height: 70vh;
+}
+
+.foodie-fiesta {
+  font-family: "Pacifico", cursive !important;
+}
+
+.span {
+  font-family: "Raleway", sans-serif !important;
+}
+
+.food {
+  margin-top: 70px;
+  justify-content: center;
+  position: relative;
+  /* border: 2px solid black; */
+  margin-left: 150px;
+  margin-right: 150px;
+  background: white;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding-bottom: 30px;
+  font-family: "Raleway", sans-serif;
+}
+
+@media (max-width: 700px) {
+  .food {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .foodie button {
+    visibility: hidden;
+  }
+}
+
+.foodie h2,
+h3,
+h5 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.foodie button {
+  padding: 15px 60px;
+  border-radius: 100px;
+  border: none;
+  background: white;
+  font-size: 17px;
+  color: #28b485;
+  font-weight: bold;
+  transition: transform 0.4s;
+  margin-top: 30px;
+}
+.foodie button:hover {
+  background-position: right center;
+  transform: scale(1.1);
+}
+
+.foodie {
+  background: linear-gradient(
+      to right,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url("https://www.golokaso.com/wp-content/uploads/2018/05/veg-food-cover.jpg");
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.foodie h1 {
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.sign h1 {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.sign label {
+  padding-bottom: 10px;
+  margin-top: 30px;
+  font-size: 17px;
+}
+.sign input {
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  width: 70%;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.15), 0 15px 12px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.8), 0 15px 12px rgba(0, 0, 0, 0.7),
+  30px 20px 0 0 rgba(0, 0, 0, 0.8);} */
+}
+.sign input:focus {
+  outline: none;
+  border-bottom: 4px #28b485 solid;
+}
+/* .sign input:focus {
+  outline: none;
+  border-bottom: 3px green solid;
+} */
+
+.sign button {
+  margin-top: 30px;
+}
+
+.account {
+  text-decoration: none;
+  color: black;
+  margin-top: 20px;
+}
+.account:hover {
+  text-decoration: none;
+}
+
+.btns {
+  background-image: linear-gradient(to right, #7ed56f 50%, #28b485 100%);
+  padding: 10px 50px;
+  font-size: 20px;
+  border-radius: 100px;
+  border: none;
+  transition: transform 0.4s;
+}
+.btns:hover {
+  background-position: right center;
+  transform: scale(1.1);
+}
+
+.btns:focus {
+  outline: none;
+}
+
+.signup input {
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  width: 70%;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.15), 0 15px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+  padding-top: 15px;
+}
+
+.signup input:focus {
+  outline: none;
+  border-bottom: 4px #28b485 solid;
+}
+
+@media (max-width: 700) {
+  .foodie button {
+    visibility: hidden;
+  }
+}
+
+.foodie_sign_up {
+  background: linear-gradient(
+      to right,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url("https://www.golokaso.com/wp-content/uploads/2018/05/veg-food-cover.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding-top: 40px;
+}
+
+.foodie_sign_up button {
+  background: white;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 100px;
+  transition: 0.5s;
+}
+.foodie_sign_up button:hover {
+  transform: scale(1.1);
+}
+
+.foodie_sign_up h1,
+.foodie_sign_up h3,
+.foodie_sign_up h5 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HOME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+li {
+  font-size: 25px;
+  margin-left: 15px;
+}
+.post {
+  padding-top: 80px;
+}
+
+.body {
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.containt {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  justify-content: center;
+  width: 1100px;
+  flex-wrap: wrap;
+  padding: 30px;
+  margin-top: 100px;
+  text-align: center;
+  margin-left: 220px;
+  font-family: "Raleway", sans-serif !important;
+}
+
+@media (max-width: 900px) {
+  .containt {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 40px;
+    margin-top: 20px;
+  }
+
+  .cardz {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .containt {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 40px;
+    margin-top: 20px;
+  }
+  .cardz {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+.containt .cardz {
+  max-width: 300px;
+  position: relative;
+  margin: 30px;
+  height: 210px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.1), 0 19px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+  transition: 0.3s ease-in-out;
+  padding-right: 20px;
+}
+
+.containt .cardz:hover {
+  height: 500px;
+}
+.containt .cardz .imgx {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  top: -60px;
+  left: 20px;
+  margin-right: 20px;
+  z-index: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.containt .cardz .imgx img {
+  max-width: 100%;
+  border-radius: 4px;
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+
+.containt .cardz .context {
+  position: relative;
+  margin-top: -140px;
+  padding: 10px 15px;
+  text-align: center;
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+  font-family: Roboto, sans;
+}
+.containt .cardz:hover .context {
+  visibility: visible;
+  opacity: 1;
+  margin-top: -10px;
+  transition-delay: 0.3s;
+}
+
+.containt i {
+  font-size: 25px;
+}
+
+.button-cardx {
+  background: linear-gradient(45deg, #28b485 50%, #7ed56f 100%);
+
+  margin: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  list-style: none;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.button-cardx:hover {
+  background: linear-gradient(45deg, #7ed56f 50%, #28b485 100%);
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+.cardz h3 {
+  background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+  background: -webkit-linear-gradient(#28b485, #7ed56f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* .car {
+  margin: 70px;
+} */
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!   MAKE POST !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.posts {
+  margin-bottom: 40px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.nav li {
+  padding-right: 30px;
+}
+
+.food-header {
+  background: linear-gradient(
+      to right,
+      rgba(126, 213, 111, 0.75),
+      rgba(40, 180, 133, 0.75)
+    ),
+    url("https://www.energystar.gov/sites/default/files/pexels-photo-326278_banner.jpg");
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0%, 100% 62%, 0% 100%);
+  font-family: "Montserrat", sans-serif;
+}
+li {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+li:hover {
+  text-decoration: none;
+}
+
+.food-header .nav {
+  float: right;
+  margin-right: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  color: white;
+}
+
+.content h2 {
+  padding-top: 90px;
+  padding-bottom: 30px;
+  font-size: 55px;
+  color: white;
+}
+
+.content p {
+  padding-bottom: 30px;
+  font-size: 20px;
+  color: white;
+}
+.content h5 {
+  font-size: 30px;
+  color: white;
+}
+.posts {
+  padding-left: 60px;
+  padding-top: 30px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.posts textarea {
+  padding: 15px 85px;
+  font-size: 20px;
+  text-align: left;
+  border: none;
+  border-bottom: 1.5px solid grey;
+}
+
+.posts input:focus {
+  border-bottom: 3px solid #28b485;
+  outline: none;
+}
+.posts textarea:focus {
+  outline: none;
+  border-bottom: 3px solid #28b485;
+}
+
+.posts label {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.posts input {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1.5px solid grey;
+}
+
+.posts button {
+  padding: 15px 60px;
+  border-radius: 100px;
+  border: none;
+  background: linear-gradient(45deg, #7ed56f 50%, #28b485 100%);
+  font-size: 17px;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.4s;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.posts button:hover {
+  background-position: right center;
+  transform: scale(1.1);
+}
+
+@media (max-width: 700px) {
+  .content p {
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .content h2 {
+    font-size: 35px;
+  }
+  .content h5 {
+    font-size: 25px;
+  }
+  .nav {
+    margin-top: 15px;
+  }
+}
+
+.add {
+  background: #77d8d8 !important;
+  padding: 12px 20px !important;
+  border-radius: 110px !important;
+  font-size: 20px !important;
+}
+
+.cross {
+  background: #cf1b1b !important;
+  padding: 12px 20px !important;
+  border-radius: 110px !important;
+}
+
+.mosaic {
+  display: grid;
+}
+.mosaic img {
+  height: 300px;
+  width: 300px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 19px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mosaic__item.img1 {
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 2;
+}
+.mosaic img:hover {
+  height: 350px;
+  width: 350px;
+  transition: 0.5s;
+  border: 10px #28b485 solid;
+  outline: 5px;
+  outline-offset: 5px;
+}
+
+@media (max-width: 600px) {
+  .mosaic img {
+    height: 200px;
+    width: 200px;
+  }
+  .mosaic img:hover {
+    height: 250px;
+    width: 250px;
+    transition: 0.5s;
+    border: 10px #28b485 solid;
+  }
+}
+
+.mosaic__item.img2 {
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+}
+
+.mosaic__item.img1:hover {
+  z-index: 1;
+}
+
+.circular-button {
+  border-radius: 110px;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!   PROFILE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 */
+
+.follow_section {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+}
+
+.profile_div {
+  font-family: "Montserrat", sans-serif;
+}
+.card-header {
+  padding-bottom: 15rem;
+  background: linear-gradient(
+      to right,
+      rgba(126, 213, 111, 0.75),
+      rgba(40, 180, 133, 0.75)
+    ),
+    url("https://www.qsrmagazine.com/sites/default/files/news-image/huey-magoo-s-expanding-atlanta-area.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  font-family: "Pacifico", cursive !important;
+  height: 50vh;
+  font-size: 35px;
+  background-size: cover;
+}
+
+.card-body {
+  padding-top: 2rem;
+}
+
+.card-img {
+  width: 20%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  border-radius: 50%;
+}
+
+@media (max-width: 500px) {
+  .card-img {
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, 80%);
+    border-radius: 50%;
+  }
+  .profile_div {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 760px) {
+  .card-img {
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    border-radius: 50%;
+  }
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!     SINGLE POST          !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 */
+
+.single_post {
+  font-family: "Montserrat", sans-serif;
+}
+
+.recipe_post {
+  font-family: "Montserrat", sans-serif;
+}
+
+.single_post img {
+  margin-top: 50px;
+  height: 400px;
+  width: 400px;
+  margin-left: 20px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 19px 30px rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+}
+
+.single_post img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 700px) {
+  .single_post img {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+.single_post h1 {
+  margin-top: 40px;
+  font-size: 38px;
+  background: -webkit-linear-gradient(#00ff95, #09009f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.single_post p {
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+.single_post i {
+  font-size: 30px;
+  margin: 20px;
+}
+
+.single_post_button {
+  background: linear-gradient(45deg, #28b485 50%, #7ed56f 100%);
+  padding: 13px 60px;
+  margin-top: 10px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+.single_post_button:hover {
+  background: linear-gradient(45deg, #7ed56f 50%, #28b485 100%);
+  color: white;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.recipe_post input {
+  padding: 7px 70px;
+  border: none;
+  border-bottom: 1px solid grey;
+  text-align: left;
+}
+
+.recipe_post input:focus {
+  outline: none;
+  border-bottom: 3px solid #28b485;
+}
+.recipe_post i {
+  color: red;
+}
+
+.render-comment p {
+  font-size: 20px;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!   USER PROFILE  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.user_header {
+  background: linear-gradient(
+      to right,
+      rgba(0, 178, 169, 0.75),
+      rgba(0, 106, 101, 0.75),
+      rgba(4, 189, 228, 0.75),
+      rgba(2, 83, 185, 0.75)
+    ),
+    url("https://cdn.riviana.com/Images/Library/8/RivianaCorporate_MakingMealsMemorable_Carousel_v2.jpg");
+
+  height: 70vh;
+  clip-path: polygon(100% 0, 100% 81%, 0 36%, 0 0);
+}
+
+.user_profile_div {
+  font-family: "Raleway", sans-serif !important;
+  font-weight: bolder;
+}
+
+.user_profile_bio {
+  margin-left: 50px;
+}
+
+.user_profile_bio img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+}
+
+.file-update {
+  padding-top: 20px;
+}
+
+.user_profile_posts {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.user_profile_posts img {
+  height: 300px;
+  width: 300px;
+}
+.follow_section {
+  margin-top: 560px;
+  padding-top: 70px;
+}
+
+@media (max-width: 800px) {
+  .follow_section {
+    margin-top: 400px;
+  }
+}
+@media (max-width: 560px) {
+  .follow_section {
+    margin-top: 400px;
+  }
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!   EDIT PROFILE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!11 */
+.edit {
+  background: linear-gradient(to right, #7ed56f 50%, #28b485 100%);
+  padding-bottom: 200px;
+}
+
+.edit_profile_body {
+  margin-top: 60px;
+  background: white;
+  padding: 30px;
+  margin-left: 400px;
+  margin-right: 400px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.edit_profile_body input {
+  border: none;
+  padding: 10px;
+  width: 50%;
+  border-bottom: 1px grey solid;
+  margin-bottom: 30px;
+}
+
+.edit_profile_body input:focus {
+  outline: none;
+  border-bottom: 3px #28b485 solid;
+}
+
+@media (max-width: 1080px) {
+  .edit_profile_body {
+    margin-top: 60px;
+    background: white;
+    padding: 30px;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 10px;
+  }
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ABOUT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11 */
+
+.about-header {
+  background: linear-gradient(to right, #7ed56f 50%, #28b485 100%);
+  padding: 100px;
+  padding-bottom: 300px;
+}
+
+.about {
+  background: white;
+  padding: 40px 160px;
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 20px 20px;
+  }
+}
+.about i {
+  background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+  background: -webkit-linear-gradient(#28b485, #7ed56f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heart,
+.dustbin {
+  cursor: pointer;
+}
