@@ -1,10 +1,49 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { UseContext } from "../App";
 
 const SignIn = () => {
+  const { dispatch } = useContext(UseContext);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    let requestBody = {
+      query: `
+        query {
+          login(email: "${email}", password: "${password}") {
+            userId token
+          }
+        }
+      `,
+    };
+    fetch("http://localhost:5000/graphql", {
+      method: "POST",
+      body: JSON.stringify(requestBody),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          console.log(data.error);
+        } else {
+          localStorage.setItem("token", data.data.login.token);
+
+          localStorage.setItem("userId", data.data.login.userId);
+
+          dispatch({ type: "USER", payload: data.data.login.userId });
+
+          history.push("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="main">
@@ -23,7 +62,7 @@ const SignIn = () => {
             </Link>
           </button>
         </div>
-        <div className="sign col-lg-6 col-md-12">
+        <form className="sign col-lg-6 col-md-12" onSubmit={onSubmit}>
           <h1>Sign in</h1>
           <label>Username</label>
           <br />
@@ -51,7 +90,7 @@ const SignIn = () => {
               Don't have an account? Click here to Sign Up
             </h5>
           </Link>
-        </div>
+        </form>
       </div>
     </div>
   );

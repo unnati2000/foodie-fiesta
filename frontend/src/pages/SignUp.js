@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
   const history = useHistory();
@@ -7,8 +8,34 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [channelname, setChannelNAme] = useState("");
-  const [image, setImage] = useState("");
-  const [url, setUrl] = useState(undefined);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    let requestBody = {
+      query: `
+        mutation {
+          createUser(userInput: {email: "${email}", password: "${password}", name: "${name}", channelname: "${channelname}"}) {
+           name _id email
+          }
+        }
+      `,
+    };
+    fetch("http://localhost:5000/graphql", {
+      method: "POST",
+      body: JSON.stringify(requestBody),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((resData) => {
+        history.push("/signin");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="main">
@@ -25,7 +52,7 @@ const SignUp = () => {
             </Link>
           </button>
         </div>
-        <div className="signup col-lg-6 col-md-12">
+        <form className="signup col-lg-6 col-md-12" onSubmit={onSubmit}>
           <h1 className="mb-4">Sign Up</h1>
           <label>Name</label>
           <br />
@@ -72,20 +99,15 @@ const SignUp = () => {
 
           <label>Upload image</label>
           <br />
-          <input
-            type="file"
-            className="mt-2 mb-2"
-            onChange={(e) => setImage(e.target.files[0])}
-          />
-          <br />
+
           <button className="btns mt-3">Sign Up</button>
-          <br />
-          <Link to="/signin">
-            <h5 className="account">
-              Already have an account? Click here to Sign In
-            </h5>
-          </Link>
-        </div>
+        </form>
+        <br />
+        <Link to="/signin">
+          <h5 className="account">
+            Already have an account? Click here to Sign In
+          </h5>
+        </Link>
       </div>
     </div>
   );
