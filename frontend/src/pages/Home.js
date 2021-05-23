@@ -63,7 +63,7 @@ export const Home = () => {
                             aria-hidden="true"
                           ></i>
                         </p>
-                        <Link to={"/singlepost/"}>
+                        <Link to={"/post/" + post?._id}>
                           <li className="button-cardx">View Recipe</li>
                         </Link>
                       </div>

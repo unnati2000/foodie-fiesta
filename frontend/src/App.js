@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import AddPost from "./pages/Add-Post";
 import Profile from "./pages/Profile";
+import SinglePost from "./pages/SinglePost";
 import { reducer, initialState } from "./reducers/userReducer";
 
 export const UseContext = createContext();
@@ -31,6 +32,7 @@ function Routing() {
         <Route path="/signup" exact component={SignUp} />
         <Route path="/create" exact component={AddPost} />
         <Route path="/profile" exact component={Profile} />
+        <Route path="/post/:id" exact component={SinglePost} />
       </Switch>
     </div>
   );
