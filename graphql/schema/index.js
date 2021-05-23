@@ -2,7 +2,7 @@ let { buildSchema } = require("graphql");
 
 const schema = buildSchema(`
   type Post {
-    id: ID!
+    _id: ID!
     title: String!
     steps: [String!]!
     photo: String
@@ -21,12 +21,12 @@ const schema = buildSchema(`
   }
   
   type User {
-    id: ID!
+    _id: ID!
     name: String!
     email: String!
     password: String
     channelname:String!
-    pic:String!
+    pic:String
     followers:[Followers]
     following:[Following]
   }
@@ -55,18 +55,24 @@ const schema = buildSchema(`
         steps: [String]!
         photo: String
     }
+
+    input CommentInput {
+      text: String!,
+      postedBy: ID!
+    }
     
     type RootQuery {
-        users: [User!]!
+        me: User!
+        myposts: [Post!]!
         posts: [Post!]!
         post(postId: ID!): Post
         login(email: String!, password: String!): AuthData!
     }
 
     type RootMutation {
-        createUser(userInput: UserInput): User!
+        createUser(userInput: UserInput): User
         createPost(postInput: PostInput): Post!
-        addComment(postId:ID!, comment: Comment!): Post!
+        addComment(postId:ID!, comment: CommentInput!): Post!
         likePost(postId: ID!): Post!
         deletePost(postId: ID!): ID!
     }

@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { UseContext } from "../App";
 const Nav = () => {
+  const history = useHistory();
+  const { dispatch } = useContext(UseContext);
   const style = {
     marginRight: "0",
     padding: "10px 40px",
@@ -44,7 +47,7 @@ const Nav = () => {
             </Link>
           </li>
           <li className="nav-item" style={navStyle}>
-            <Link to="/createpost" style={navStyle}>
+            <Link to="/create" style={navStyle}>
               Create Post
             </Link>
           </li>
@@ -62,6 +65,11 @@ const Nav = () => {
         <button
           className="text-right logout btn btn-danger ml-3"
           style={{ marginRight: "0" }}
+          onClick={() => {
+            localStorage.clear();
+            history.push("/signin");
+            dispatch({ type: "CLEAR" });
+          }}
         >
           Logout
         </button>

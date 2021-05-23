@@ -25,7 +25,7 @@ module.exports = {
         "somesupersecretkey"
       );
 
-      return { ...result._doc, id: result._id };
+      return { ...result._doc, password: null, id: result._id };
     } catch (error) {
       throw error;
     }
@@ -45,6 +45,19 @@ module.exports = {
         "somesupersecretkey"
       );
       return { userId: user.id, token: token };
+    } catch (error) {
+      throw error;
+    }
+  },
+  me: async (args, req) => {
+    try {
+      if (!req.userId.userId) {
+        throw new Error("Unauthenticated");
+      }
+
+      const user = await User.findById(req.userId.userId);
+
+      return { ...user._doc };
     } catch (error) {
       throw error;
     }

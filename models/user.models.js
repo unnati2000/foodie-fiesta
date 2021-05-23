@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  channelname: {
+    type: String,
+    require: true,
+  },
   pic: {
     type: String,
     default:

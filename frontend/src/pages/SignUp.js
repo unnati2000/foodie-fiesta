@@ -97,12 +97,9 @@ const SignUp = () => {
           />
           <br></br>
 
-          <label>Upload image</label>
-          <br />
-
           <button className="btns mt-3">Sign Up</button>
         </form>
-        <br />
+
         <Link to="/signin">
           <h5 className="account">
             Already have an account? Click here to Sign In

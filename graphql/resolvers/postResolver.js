@@ -1,5 +1,5 @@
 const Post = require("../../models/post.models");
-
+const { transformPost } = require("./merge");
 module.exports = {
   createPost: async (args, req) => {
     try {
@@ -7,12 +7,11 @@ module.exports = {
         throw new Error("Not Authenticated!");
       }
       const post = new Post({
-        steps: args.foodInput.steps,
-        postedBy: req.userId,
-        title: args.foodInput.title,
-        photo: args.foodInput.photo,
+        steps: args.postInput.steps,
+        postedBy: req.userId.userId,
+        title: args.postInput.title,
+        photo: args.postInput.photo,
       });
-
       const result = await post.save();
       return { ...result._doc, id: result._id };
     } catch (error) {
@@ -43,6 +42,22 @@ module.exports = {
       throw error;
     }
   },
+  myposts: async (args, req) => {
+    try {
+      if (!req.isAuth) {
+        throw new Error("Not Authenticated!");
+      }
+
+      const posts = await Post.find({ postedBy: req.userId.userId });
+
+      return posts.map((post) => {
+        return transformPost(post);
+      });
+    } catch (error) {
+      throw error;
+    }
+  },
+
   addComment: async ({ postId, comment }, req) => {
     try {
       if (!req.isAuth) {
