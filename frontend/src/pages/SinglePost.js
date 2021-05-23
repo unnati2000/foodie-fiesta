@@ -7,6 +7,7 @@ const SinglePost = ({ match }) => {
   const history = useHistory();
 
   const [post, setPost] = useState([]);
+  const [user, setUser] = useState();
 
   useEffect(() => {
     let requestBody = {
@@ -29,9 +30,59 @@ const SinglePost = ({ match }) => {
       .then((res) => res.json())
       .then((data) => setPost(data.data.post))
       .catch((err) => console.log(err));
+
+    let userBody = {
+      query: `
+            query {
+              me {
+                  name
+                  email
+                  channelname
+              }
+            }
+          `,
+    };
+
+    fetch("http://localhost:5000/graphql", {
+      method: "POST",
+      body: JSON.stringify(userBody),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setUser(data.data.me))
+      .catch((err) => console.log(err));
   }, [match]);
 
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!! RENDERING LIKES HEART  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  const addComments = (text) => {
+    let requestBody = {
+      query: `
+              mutation {
+                addComment(postId:"${match.params.id}", comment:{text:"${text}", username:"${user?.name}"}) {
+                  title
+                }
+              }
+            `,
+    };
+
+    fetch("http://localhost:5000/graphql", {
+      method: "POST",
+      body: JSON.stringify(requestBody),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -61,7 +112,12 @@ const SinglePost = ({ match }) => {
 
           <hr></hr>
 
-          <form onSubmit={(e) => {}}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              addComments(e.target[0].value);
+            }}
+          >
             <h4 className="text-center mt-5 mb-2">Add a comment</h4>
             <input
               type="text"
@@ -69,6 +125,16 @@ const SinglePost = ({ match }) => {
               className="mt-3 mb-3"
             />
           </form>
+          {post.comment &&
+            post.comment.map((record) => {
+              return (
+                <div className="render-comment" key={record._id}>
+                  <h5>
+                    {record.username}: {record.text}
+                  </h5>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>

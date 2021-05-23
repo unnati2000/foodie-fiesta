@@ -71,13 +71,12 @@ module.exports = {
       }
 
       post.comment.unshift({
-        comment: comment,
-        username: req.userId,
+        text: comment.text,
+        username: comment.username,
       });
 
       post.save();
-
-      // post = post.comment.un
+      return { ...post._doc };
     } catch (error) {
       throw error;
     }

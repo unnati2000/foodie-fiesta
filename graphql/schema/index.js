@@ -58,7 +58,7 @@ const schema = buildSchema(`
 
     input CommentInput {
       text: String!,
-      postedBy: ID!
+      username: String!
     }
     
     type RootQuery {

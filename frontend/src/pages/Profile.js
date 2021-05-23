@@ -4,10 +4,8 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState("");
   const [posts, setPosts] = useState([]);
-
-  const { state, dispatch } = useContext(UseContext);
 
   useEffect(() => {
     let requestBody = {
